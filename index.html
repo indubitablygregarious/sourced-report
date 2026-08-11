@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourced Report</title>
+<meta name="description" content="Independent, aggressively-cited research on the stories everyone's arguing about.">
+<meta property="og:title" content="Sourced Report">
+<meta property="og:description" content="Independent, aggressively-cited research on the stories everyone's arguing about.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eef1ef">
+<style>
+  :root{
+    --ink:#161b22; --ink-soft:#3c4650; --paper:#eef1ef; --paper-raised:#ffffff;
+    --line:#c7d0cb; --accent:#b3651c; --accent-ink:#7a4413;
+    --risk:#9c3b2e; --risk-bg:#f5e6e2;
+    --evidence:#2b6e5e; --evidence-bg:#e3ede9;
+    --policy:#38537a; --policy-bg:#e6ebf1;
+    --serif: "Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e8ecea; --ink-soft:#aab4ae; --paper:#12181a; --paper-raised:#1a2225;
+      --line:#2c3639; --accent:#d98a3d; --accent-ink:#f0a961;
+      --risk:#d97463; --risk-bg:#3a201c;
+      --evidence:#6cbfa8; --evidence-bg:#1c2f2a;
+      --policy:#7fa3cc; --policy-bg:#1b2733;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e8ecea; --ink-soft:#aab4ae; --paper:#12181a; --paper-raised:#1a2225;
+    --line:#2c3639; --accent:#d98a3d; --accent-ink:#f0a961;
+  }
+  :root[data-theme="light"]{
+    --ink:#161b22; --ink-soft:#3c4650; --paper:#eef1ef; --paper-raised:#ffffff;
+    --line:#c7d0cb; --accent:#b3651c; --accent-ink:#7a4413;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  ::selection{background:var(--accent); color:var(--paper-raised);}
+
+  /* SITE NAV */
+  header.sitenav{
+    border-bottom:1px solid var(--line); background:var(--paper-raised);
+    position:sticky; top:0; z-index:10;
+  }
+  .sitenav-inner{
+    max-width:960px; margin:0 auto; padding:16px 24px; display:flex;
+    align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .wordmark{font-family:var(--serif); font-weight:700; font-size:1.3rem; letter-spacing:-.01em; text-decoration:none; color:var(--ink);}
+  .wordmark span{color:var(--accent-ink);}
+  nav.links{display:flex; gap:24px; font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav.links a:hover, nav.links a.active{color:var(--accent-ink); border-bottom-color:var(--accent-ink);}
+
+  main{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* HERO */
+  .kicker{
+    font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent-ink); margin:52px 0 14px;
+  }
+  .flagship{
+    display:block; text-decoration:none; color:inherit; border:1px solid var(--line);
+    background:var(--paper-raised); padding:36px 32px 32px;
+  }
+  .flagship h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(1.8rem,5vw,2.6rem); line-height:1.1;
+    margin:0 0 16px; text-wrap:balance; letter-spacing:-.01em;
+  }
+  .flagship .dek{font-size:16.5px; color:var(--ink-soft); max-width:58ch; margin:0 0 20px;}
+  .flagship .meta{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); margin-bottom:22px;}
+  .flagship .cta{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12.5px;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--accent-ink); font-weight:600;
+  }
+  .flagship .cta .arrow{transition:transform .15s ease;}
+  .flagship:hover .cta .arrow{transform:translateX(4px);}
+  @media (prefers-reduced-motion:reduce){ .flagship .cta .arrow{transition:none;} }
+
+  .statrow{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:24px;}
+  .statrow div{background:var(--paper-raised); padding:14px 12px;}
+  .statrow .n{font-family:var(--serif); font-weight:600; font-size:1.3rem; color:var(--accent-ink); font-variant-numeric:tabular-nums; line-height:1;}
+  .statrow .l{font-size:11.5px; color:var(--ink-soft); margin-top:5px; line-height:1.3;}
+  @media (max-width:600px){ .statrow{grid-template-columns:repeat(2,1fr);} }
+
+  /* ABOUT TEASER */
+  .about-teaser{
+    margin:56px 0; padding:28px 0 0; border-top:1px solid var(--line);
+  }
+  .about-teaser h2{
+    font-family:var(--serif); font-size:1.2rem; font-weight:600; margin:0 0 10px;
+  }
+  .about-teaser p{color:var(--ink-soft); max-width:62ch; margin:0 0 14px;}
+  .about-teaser a{color:var(--accent-ink); font-weight:600; text-decoration:none; border-bottom:1px solid var(--accent-ink);}
+
+  /* NEXT UP */
+  .next-up{
+    margin:0 0 56px; padding:20px 22px; background:var(--paper-raised); border:1px dashed var(--line);
+    font-size:13.5px; color:var(--ink-soft);
+  }
+  .next-up strong{color:var(--ink);}
+
+  footer.sitefoot{
+    border-top:1px solid var(--line); margin-top:40px; padding:28px 24px 60px;
+    max-width:960px; margin-left:auto; margin-right:auto;
+  }
+  footer.sitefoot .foot-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; align-items:center;}
+  footer.sitefoot nav{display:flex; gap:20px; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em;}
+  footer.sitefoot nav a{text-decoration:none; color:var(--ink-soft);}
+  footer.sitefoot nav a:hover{color:var(--accent-ink);}
+  footer.sitefoot .copy{font-family:var(--mono); font-size:11px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="sitenav">
+  <div class="sitenav-inner">
+    <a class="wordmark" href="/">Sourced<span>Report</span></a>
+    <nav class="links">
+      <a href="/" class="active">Home</a>
+      <a href="/therapist-in-the-machine.html">Investigations</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="kicker">Flagship investigation</p>
+  <a class="flagship" href="/therapist-in-the-machine.html">
+    <h1>The Therapist in the Machine</h1>
+    <p class="dek">Why millions of Americans are now processing their anxiety, grief, and crises with a chatbot instead of a clinician — what the evidence says it's doing to them, and what a fractured regulatory system is scrambling to do about it.</p>
+    <p class="meta">Sourced Report Research Desk &middot; Compiled August 10, 2026 &middot; 74 sources cited</p>
+    <span class="cta">Read the full investigation <span class="arrow">&rarr;</span></span>
+    <div class="statrow">
+      <div><div class="n">137M</div><div class="l">Americans in a mental-health shortage area</div></div>
+      <div><div class="n">19.2%</div><div class="l">of 12&ndash;21-year-olds report past-year AI chatbot use for mental health advice</div></div>
+      <div><div class="n">$143</div><div class="l">average out-of-pocket cost of one therapy session</div></div>
+      <div><div class="n">7</div><div class="l">state laws enacted or pending in 18 months, zero federal</div></div>
+    </div>
+  </a>
+
+  <div class="about-teaser">
+    <h2>What Sourced Report is</h2>
+    <p>An independent research desk building one thing: pieces where every claim traces back to a named, dated source — federal data, peer-reviewed literature, court records — checked hard enough to survive someone hostile trying to take it apart.</p>
+    <a href="/about.html">Read the full methodology &rarr;</a>
+  </div>
+
+  <div class="next-up">
+    <strong>Next up:</strong> this is issue one. More investigations are in progress — check back, or bookmark this page.
+  </div>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-inner">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/therapist-in-the-machine.html">Investigations</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <span class="copy">Sourced Report &middot; est. 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

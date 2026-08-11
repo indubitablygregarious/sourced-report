@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Sourced Report</title>
+<meta name="description" content="What Sourced Report is, how pieces get made, and what standard they're held to.">
+<meta name="theme-color" content="#eef1ef">
+<style>
+  :root{
+    --ink:#161b22; --ink-soft:#3c4650; --paper:#eef1ef; --paper-raised:#ffffff;
+    --line:#c7d0cb; --accent:#b3651c; --accent-ink:#7a4413;
+    --serif: "Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e8ecea; --ink-soft:#aab4ae; --paper:#12181a; --paper-raised:#1a2225;
+      --line:#2c3639; --accent:#d98a3d; --accent-ink:#f0a961;
+    }
+  }
+  :root[data-theme="dark"]{ --ink:#e8ecea; --ink-soft:#aab4ae; --paper:#12181a; --paper-raised:#1a2225; --line:#2c3639; --accent-ink:#f0a961; }
+  :root[data-theme="light"]{ --ink:#161b22; --ink-soft:#3c4650; --paper:#eef1ef; --paper-raised:#ffffff; --line:#c7d0cb; --accent-ink:#7a4413; }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.65; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent-ink);}
+
+  header.sitenav{border-bottom:1px solid var(--line); background:var(--paper-raised); position:sticky; top:0; z-index:10;}
+  .sitenav-inner{max-width:960px; margin:0 auto; padding:16px 24px; display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  .wordmark{font-family:var(--serif); font-weight:700; font-size:1.3rem; letter-spacing:-.01em; text-decoration:none; color:var(--ink);}
+  .wordmark span{color:var(--accent-ink);}
+  nav.links{display:flex; gap:24px; font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav.links a:hover, nav.links a.active{color:var(--accent-ink); border-bottom-color:var(--accent-ink);}
+
+  main{max-width:640px; margin:0 auto; padding:0 24px 80px;}
+  h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.8rem,5vw,2.3rem); margin:52px 0 28px; text-wrap:balance;}
+  h2{font-family:var(--serif); font-weight:600; font-size:1.3rem; margin:40px 0 14px;}
+  p{margin:0 0 16px; max-width:64ch;}
+  .lead{font-size:17px; color:var(--ink-soft);}
+  ul{margin:0 0 16px; padding-left:1.2em;}
+  li{margin-bottom:8px;}
+  .standards{background:var(--paper-raised); border:1px solid var(--line); padding:22px 24px; margin:24px 0;}
+  .standards li{color:var(--ink-soft);}
+  .standards li strong{color:var(--ink);}
+
+  footer.sitefoot{border-top:1px solid var(--line); margin-top:40px; padding:28px 24px 60px; max-width:960px; margin-left:auto; margin-right:auto;}
+  footer.sitefoot .foot-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; align-items:center;}
+  footer.sitefoot nav{display:flex; gap:20px; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em;}
+  footer.sitefoot nav a{text-decoration:none; color:var(--ink-soft);}
+  footer.sitefoot nav a:hover{color:var(--accent-ink);}
+  footer.sitefoot .copy{font-family:var(--mono); font-size:11px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="sitenav">
+  <div class="sitenav-inner">
+    <a class="wordmark" href="/">Sourced<span>Report</span></a>
+    <nav class="links">
+      <a href="/">Home</a>
+      <a href="/therapist-in-the-machine.html">Investigations</a>
+      <a href="/about.html" class="active">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>About Sourced Report</h1>
+  <p class="lead">Sourced Report is an independent research desk with one job: build pieces on contested, confusing, or under-covered topics where every claim traces back to a named, dated source — and say plainly where the evidence runs out.</p>
+
+  <h2>How a piece gets made</h2>
+  <p>Every investigation starts by fanning research out across primary sources — federal data, peer-reviewed literature, court and legislative records, and independent investigative journalism — rather than working from a single narrative. Findings are cross-checked against each other before anything gets written.</p>
+  <p>Before publication, each piece goes through an adversarial fact-checking pass built specifically to survive scrutiny from people who know the subject better than we do: looking for overstated causal claims, statistics used outside their original context, conflicts of interest in the underlying research, and legal or scientific claims that need more precise language than a first draft usually has.</p>
+  <p>Sourced Report's research and drafting process is AI-assisted — it's how one person can fan out across dozens of primary sources and hold a piece to this standard without a newsroom behind them. Every draft is reviewed and directed by a human editor before it publishes, and every piece discloses that process rather than hiding it.</p>
+
+  <h2>The standard</h2>
+  <div class="standards">
+    <ul>
+      <li><strong>Named sources, not vibes.</strong> Every factual claim is traceable to a specific, dated, citable source.</li>
+      <li><strong>Conflicts of interest get flagged</strong> — including in the studies and reports a piece relies on, not just in Sourced Report's own reporting.</li>
+      <li><strong>Uncertainty is labeled, not smoothed over.</strong> If the evidence is thin, contested, or doesn't exist yet, the piece says so.</li>
+      <li><strong>Every piece ships with its own sourcing note</strong> — what was checked, what got left out and why, and where the limits of the evidence are.</li>
+    </ul>
+  </div>
+
+  <h2>Where this is headed</h2>
+  <p>This is issue one. Sourced Report is currently a one-person operation, built to prove the model works before it scales. More investigations are in progress.</p>
+</main>
+
+<footer class="sitefoot">
+  <div class="foot-inner">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/therapist-in-the-machine.html">Investigations</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <span class="copy">Sourced Report &middot; est. 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
