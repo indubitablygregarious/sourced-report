@@ -188,7 +188,7 @@
   .fp-swatch--fu{background:var(--paper-raised); border:2px solid var(--fp-mark);}
 
   .fp-wrap{position:relative; background:var(--paper-raised); border:1px solid var(--line); padding:10px 6px 4px;}
-  #fp-svg, #tl-svg, #app-svg{width:100%; height:auto; display:block; overflow:visible;}
+  #fp-svg, #tl-svg, #app-svg, #wall-svg{width:100%; height:auto; display:block; overflow:visible;}
   .fp-axis-line{stroke:var(--line);}
   .fp-grid{stroke:var(--line); stroke-width:1; opacity:.6;}
   .fp-ref-zero{stroke:var(--ink-soft); stroke-width:1.3;}
@@ -200,6 +200,10 @@
   .fp-whisker{stroke:var(--fp-mark); stroke-width:2; stroke-linecap:round;}
   .fp-whisker-fu{stroke:var(--fp-mark); stroke-width:1.5; stroke-linecap:round; opacity:.55;}
   .app-bar{stroke:var(--fp-mark); stroke-width:16; stroke-linecap:round;}
+  .wall-bar{stroke:var(--risk); stroke-width:14; stroke-linecap:round;}
+  .wall-row-group:focus-visible .fp-hit{fill:var(--risk-bg);}
+  .wall-row-group:hover .fp-hit{fill:var(--risk-bg);}
+  #wall-tooltip .fp-tt-num{color:var(--risk);}
   .fp-dot-pt{fill:var(--fp-mark); stroke:var(--paper-raised); stroke-width:1.5;}
   .fp-dot-fu{fill:var(--paper-raised); stroke:var(--fp-mark); stroke-width:2;}
   .fp-value-label{font-family:var(--mono); font-size:11px; font-weight:600; fill:var(--ink);}
@@ -384,6 +388,32 @@
 
   <p>Then there's money. A peer-reviewed analysis of 175,000+ psychotherapy providers found roughly a third accept no insurance whatsoever, and 82.7% accept no Medicaid or Medicare. The average cash-pay session runs $143.26. Medicaid reimburses at roughly 40% below that.<sup class="cite"><a href="#r2">2</a></sup> This isn't for lack of a law. The federal parity act (MHPAEA) has required insurers to cover mental health on par with physical health since 2008. Enforcement has just consistently lagged. The 2024 tri-agency report to Congress found continued, widespread noncompliance with the law's core comparative-analysis requirement. GAO has separately documented that low reimbursement is the single most-cited reason, named by 19 of 29 surveyed stakeholder groups, that insurance networks can't recruit enough mental health providers. Mental health hospital stays get denied prior authorization more often than comparable medical or surgical stays.<sup class="cite"><a href="#r4">4</a></sup><sup class="cite"><a href="#r5">5</a></sup> The result shows up in national data. The share of U.S. adults skipping needed mental health care because of cost rose from 4% to 6% between 2021 and 2025. In the same window, per the 2023 federal drug-use survey, 58.7 million adults had some diagnosable mental illness, and 27.1 million of them, 46%, received no treatment at all.<sup class="cite"><a href="#r10">10</a></sup><sup class="cite"><a href="#r11">11</a></sup> Underneath all of that sits a simpler fact. 8.3% of Americans, 28.0 million people, had no health insurance of any kind in 2025. For that population, "insurance doesn't cover enough therapists" isn't even the operative problem.<sup class="cite"><a href="#r9">9</a></sup> The following year's federal survey found the underlying treatment gap essentially unchanged.<sup class="cite"><a href="#r13">13</a></sup></p>
 
+  <figure class="chart-block" id="wall-chart" aria-label="Bar chart of five independent measures of mental-health access barriers in the United States, each a distinct percentage from a different source">
+    <figcaption>
+      <span class="chart-title">Five numbers, one wall</span>
+      <span class="chart-sub">Five different measures, five different sources, one problem: reaching a human therapist</span>
+    </figcaption>
+    <div class="fp-wrap">
+      <svg id="wall-svg" viewBox="0 0 640 234" role="img" aria-hidden="false"></svg>
+      <div class="fp-tooltip" id="wall-tooltip" role="status" hidden></div>
+    </div>
+    <details class="chart-table">
+      <summary>View underlying data as a table</summary>
+      <div class="tablewrap">
+      <table>
+        <thead><tr><th>Measure</th><th>Value</th><th>What it counts</th></tr></thead>
+        <tbody>
+          <tr><td>Shortage areas<sup class="cite"><a href="#r1">1</a></sup></td><td>40%</td><td>Share of the U.S. population living in a federally designated Mental Health Professional Shortage Area</td></tr>
+          <tr><td>Psychiatrists, unavailable<sup class="cite"><a href="#r6">6</a></sup></td><td>81.5%</td><td>Share of psychiatrists, in a simulated-patient calling study, that could NOT see a new patient</td></tr>
+          <tr><td>Psychologists, no openings<sup class="cite"><a href="#r3">3</a></sup></td><td>46%</td><td>Share of psychologists reporting no openings for new patients at all</td></tr>
+          <tr><td>No insurance accepted<sup class="cite"><a href="#r2">2</a></sup></td><td>33%</td><td>Share of psychotherapy providers accepting no insurance whatsoever</td></tr>
+          <tr><td>No Medicaid or Medicare<sup class="cite"><a href="#r2">2</a></sup></td><td>82.7%</td><td>Share of psychotherapy providers accepting no Medicaid or Medicare</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </details>
+  </figure>
+
   <p>A chatbot has none of these problems. No waitlist. No copay. No network. No zip code.</p>
 
   <h3><span class="sub-eyebrow">II.B</span>The psychological pull</h3>
@@ -428,7 +458,7 @@
           <tr><td>Li et al., <em>npj Digital Med.</em> 2023<sup class="cite"><a href="#r28">28</a></sup></td><td>15 RCTs</td><td>0.64</td><td>0.17-1.12</td><td>~91-95%</td><td>Widest CI of the five, and very high heterogeneity. Fewest studies, least precise</td></tr>
           <tr><td>Linardon et al., <em>World Psychiatry</em> 2024<sup class="cite"><a href="#r29">29</a></sup></td><td>Chatbot subset of a 176-RCT, n&gt;20,000 review</td><td>0.53</td><td>not reported</td><td>61%</td><td>Chatbots were only ~5% of the full sample</td></tr>
           <tr><td>Generative-AI-specific, <em>JMIR</em> 2025<sup class="cite"><a href="#r31">31</a></sup></td><td>14 RCTs, n=6,314</td><td>0.30</td><td>0.00-0.59</td><td>not confirmed</td><td>P=.047, borderline significant, CI nearly crosses zero</td></tr>
-          <tr><td>Sohn et al., <em>npj Digital Med.</em> 2026<sup class="cite"><a href="#r30">30</a></sup></td><td>39 RCTs, n=7,401</td><td>0.31</td><td>0.17-0.46</td><td>85.3%</td><td>Most current and largest synthesis, but very high heterogeneity</td></tr>
+          <tr><td>Sohn et al., <em>npj Digital Med.</em> 2026<sup class="cite"><a href="#r30">30</a></sup></td><td>38 RCTs, n=7,401</td><td>0.31</td><td>0.17-0.46</td><td>85.3%</td><td>Most current and largest synthesis (39 eligible studies overall, 38 in the depression arm), but very high heterogeneity</td></tr>
         </tbody>
       </table>
       </div>
@@ -573,7 +603,7 @@
           <tr><td>California</td><td>SB 243<sup class="cite"><a href="#r62">62</a></sup></td><td>Crisis-referral protocols, minor-safety disclosures, annual public-health reporting from 2027</td><td>In effect, Jan. 2026</td></tr>
           <tr><td>New York</td><td>AI Companion Models law<sup class="cite"><a href="#r61">61</a></sup></td><td>Requires detection of self-harm/suicidal language with crisis-service referral; recurring AI-disclosure reminders; fines up to $15,000/day</td><td>In effect, Nov. 2025</td></tr>
           <tr><td>New Jersey</td><td>AB 5603 / S8484<sup class="cite"><a href="#r63">63</a></sup></td><td>Would ban marketing AI as a licensed professional; AG enforcement</td><td>Pending, not yet law</td></tr>
-          <tr><td>Ohio</td><td>HB 524 / HB 525<sup class="cite"><a href="#r64">64</a></sup></td><td>Would fund the 988 Lifeline from penalties on AI companies whose bots promote self-harm</td><td>Pending, not yet law</td></tr>
+          <tr><td>Ohio</td><td>HB 524<sup class="cite"><a href="#r64">64</a></sup></td><td>Would fund the 988 Lifeline from penalties on AI companies whose bots promote self-harm. A related bill, HB 525, would separately regulate AI use within licensed therapy practice; it has been referred to committee with no hearing yet held</td><td>Pending, not yet law</td></tr>
         </tbody>
       </table>
       </div>
@@ -672,13 +702,13 @@
     <li id="r55"><strong>World Health Organization.</strong> "Mental health at work" fact sheet. Updated Sept. 2, 2024. <a href="https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work" target="_blank" rel="noopener">who.int</a></li>
     <li id="r56"><strong>CDC.</strong> Youth Risk Behavior Survey, United States, 2023. <em>MMWR Supplement</em> Vol. 73. <a href="https://www.cdc.gov/mmwr/volumes/73/su/pdfs/su7304a9-H.pdf" target="_blank" rel="noopener">cdc.gov</a></li>
     <li id="r57"><strong>U.S. Surgeon General (Vivek Murthy).</strong> "Protecting Youth Mental Health: The U.S. Surgeon General's Advisory." Dec. 7, 2021.</li>
-    <li id="r58"><strong>Illinois Dept. of Financial &amp; Professional Regulation.</strong> HB 1806, Wellness and Oversight for Psychological Resources Act, signed Aug. 4, 2025.</li>
+    <li id="r58"><strong>Illinois Dept. of Financial &amp; Professional Regulation.</strong> HB 1806, Wellness and Oversight for Psychological Resources Act. Signed Aug. 1, 2025 per the Illinois General Assembly's bill-status record and the enacted Public Act text (104-0054); IDFPR's press release announcing the signing is dated Aug. 4, 2025, which some secondary summaries mistake for the signing date itself. Passed the House 105-0 and the Senate 56-0.</li>
     <li id="r59"><strong>Wilson Sonsini Goodrich &amp; Rosati.</strong> "Nevada Passes Law Limiting AI Use for Mental and Behavioral Healthcare." Jun. 2025. <a href="https://www.wsgr.com/en/insights/nevada-passes-law-limiting-ai-use-for-mental-and-behavioral-healthcare.html" target="_blank" rel="noopener">wsgr.com</a>. Signing date (Jun. 5, 2025) cross-confirmed against Nevada's own NELIS legislative tracker, bill AB406, 83rd Session.</li>
     <li id="r60"><strong>Wilson Sonsini; Future of Privacy Forum.</strong> Utah HB 452, signed Mar. 25, 2025, effective May 7, 2025.</li>
     <li id="r61"><strong>Manatt, Phelps &amp; Phillips; Davis Polk.</strong> New York AI Companion Models law, effective Nov. 5, 2025.</li>
     <li id="r62"><strong>Skadden Arps.</strong> California SB 243 client alert, signed Oct. 13, 2025, effective Jan. 1, 2026.</li>
     <li id="r63"><strong>New Jersey Monitor.</strong> "Counseling by chatbot? New Jersey legislators act to ban AI in therapy." (AB 5603 / S8484, pending.)</li>
-    <li id="r64"><strong>Ohio Capital Journal.</strong> Ohio HB 524 / HB 525 coverage, Feb. 20, 2026 (pending).</li>
+    <li id="r64"><strong>Ohio Capital Journal.</strong> Ohio HB 524 coverage, Feb. 20, 2026, reporting a third committee hearing (Ohio House Technology and Innovation Committee's own calendar dates that hearing Feb. 17, 2026). HB 525, a separate bill, has no recorded hearing as of this check (pending).</li>
     <li id="r65">Multiple law-firm client alerts (White &amp; Case, Seyfarth Shaw, Paul Hastings, Sidley Austin, Ropes &amp; Gray) on the Dec. 11, 2025 executive order, "Ensuring a National Policy Framework for Artificial Intelligence."</li>
     <li id="r66"><strong>Federal Trade Commission; CBS News; CNBC; TechCrunch.</strong> FTC 6(b) inquiry into AI companion chatbots, Sept. 11, 2025.</li>
     <li id="r67"><strong>American Psychological Association.</strong> "Health Advisory on the Use of Generative AI Chatbots and Wellness Applications for Mental Health." Nov. 2025.</li>
@@ -727,7 +757,7 @@
       note: "The only synthesis specific to LLM-based chatbots. P=.047. The confidence interval nearly touches zero. I² for depression not confirmed against primary text."
     },
     {
-      study: "Sohn et al.", short: "2026 · 39 RCTs", journal: "npj Digital Medicine, 2026, 39 RCTs, n=7,401", g: 0.31, lo: 0.17, hi: 0.46,
+      study: "Sohn et al.", short: "2026 · 38 RCTs", journal: "npj Digital Medicine, 2026, 38 RCTs (depression arm), n=7,401", g: 0.31, lo: 0.17, hi: 0.46,
       note: "Most current and largest synthesis to date. I²=85.3%, considerable heterogeneity."
     }
   ];
@@ -852,8 +882,8 @@
       tip: "Signed Mar 25, 2025; effective May 7, 2025. Discloses AI status, bars health-data sale, restricts in-chat ads. Fines to $5,000/violation." },
     { state: "Nevada", law: "AB 406", date: Date.UTC(2025,5,5),
       tip: "Signed Jun 5, 2025, effective Jul 1, 2025. First state to ban AI from delivering mental healthcare outright. Fines to $15,000/violation." },
-    { state: "Illinois", law: "HB 1806", date: Date.UTC(2025,7,4),
-      tip: "Signed Aug 4, 2025, unanimous passage (WOPR Act). Bars AI from independently making therapeutic decisions. Fines to $10,000/violation." },
+    { state: "Illinois", law: "HB 1806", date: Date.UTC(2025,7,1),
+      tip: "Signed Aug 1, 2025 (announced via press release Aug 4), unanimous passage in both chambers (WOPR Act). Bars AI from independently making therapeutic decisions. Fines to $10,000/violation." },
     { state: "California", law: "SB 243", date: Date.UTC(2025,9,13),
       tip: "Signed Oct 13, 2025; effective Jan 1, 2026. Crisis-referral protocols, minor safeguards, annual reporting from 2027." },
     { state: "New York", law: "Companion law", date: Date.UTC(2025,10,5),
@@ -863,8 +893,8 @@
   var PENDING = [
     { state: "New Jersey", law: "AB 5603", date: Date.UTC(2025,6,1),
       tip: "Advanced out of Assembly committee (unanimous) around mid-2025; not yet enacted. Would ban marketing AI as a licensed professional." },
-    { state: "Ohio", law: "HB 524/525", date: Date.UTC(2026,1,18),
-      tip: "Third committee hearing Feb 18, 2026; not yet enacted. Would fund the 988 Lifeline from penalties on AI companies whose bots promote self-harm." }
+    { state: "Ohio", law: "HB 524", date: Date.UTC(2026,1,17),
+      tip: "Third committee hearing Feb 17, 2026, per the Ohio House's own committee calendar; not yet enacted. Would fund the 988 Lifeline from penalties on AI companies whose bots promote self-harm. A related bill, HB 525, would separately regulate AI within licensed therapy practice, but has no recorded hearing yet." }
   ];
 
   var TODAY = Date.UTC(2026,7,10);
@@ -1038,6 +1068,83 @@
     el("text", { x: plotLeft-12, y: y+4, class:"fp-row-label", "text-anchor":"end" }, g).textContent = o.label;
     el("line", { x1: xScale(0), x2: xScale(o.value), y1:y, y2:y, class:"app-bar" }, g);
     el("text", { x: xScale(o.value)+10, y: y+4, class:"fp-value-label", "text-anchor":"start" }, g).textContent = "−" + o.value + "%";
+
+    var tipHtml = "<span class='fp-tt-title'>" + o.label + "</span>" + o.tip;
+    g.addEventListener("mouseenter", function(){ showTip(tipHtml, g); });
+    g.addEventListener("mouseleave", hideTip);
+    g.addEventListener("focus", function(){ showTip(tipHtml, g); });
+    g.addEventListener("blur", hideTip);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var el = function(tag, attrs, parent){
+    var n = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+
+  var WALL = [
+    { label: "Shortage areas", value: 40,
+      tip: "40% of the U.S. population lives in a federally designated Mental Health Professional Shortage Area (137.1 million people, HRSA, Jan. 2026)." },
+    { label: "Psychiatrists, unavailable", value: 81.5,
+      tip: "81.5% of psychiatrists could NOT see a new patient, in a 2023 study that placed simulated-patient calls to 948 psychiatrists across five states. That's the inverse of the study's 18.5% availability figure." },
+    { label: "Psychologists, no openings", value: 46,
+      tip: "46% of psychologists report no openings for new patients at all, per APA's own practitioner surveys." },
+    { label: "No insurance accepted", value: 33,
+      tip: "Roughly a third of psychotherapy providers accept no insurance whatsoever, per a peer-reviewed analysis of 175,000+ providers." },
+    { label: "No Medicaid or Medicare", value: 82.7,
+      tip: "82.7% of psychotherapy providers accept no Medicaid or Medicare at all, per the same peer-reviewed analysis." }
+  ];
+
+  var svg = document.getElementById("wall-svg");
+  var tooltip = document.getElementById("wall-tooltip");
+  var wrap = svg ? svg.closest(".fp-wrap") : null;
+  if (!svg || !tooltip || !wrap) return;
+
+  var plotLeft = 225, plotRight = 585, rowH = 32, top = 20;
+  var domainMax = 100;
+  var xScale = function(v){ return plotLeft + (v / domainMax) * (plotRight - plotLeft); };
+
+  var axisY = top + rowH * WALL.length + 8;
+  var tickLabelY = axisY + 14;
+  var axisTitleY = tickLabelY + 18;
+
+  [0,20,40,60,80,100].forEach(function(t){
+    var x = xScale(t);
+    el("line", { x1:x, x2:x, y1: top - 8, y2: axisY, class:"fp-grid" }, svg);
+    el("text", { x:x, y: tickLabelY, class:"fp-tick-label", "text-anchor":"middle" }, svg).textContent = t + "%";
+  });
+  el("line", { x1: plotLeft, x2: plotRight, y1: axisY, y2: axisY, class:"fp-axis-line" }, svg);
+  el("text", { x: (plotLeft+plotRight)/2, y: axisTitleY, class:"fp-tick-label", "text-anchor":"middle" }, svg)
+    .textContent = "Five independent measures of the same access problem, not one shared denominator";
+
+  function showTip(html, rowEl){
+    tooltip.innerHTML = html;
+    tooltip.hidden = false;
+    var wrapRect = wrap.getBoundingClientRect();
+    var rowRect = rowEl.getBoundingClientRect();
+    var rowTop = rowRect.top - wrapRect.top;
+    var left = rowRect.left - wrapRect.left + 20;
+    if (left + 230 > wrapRect.width) left = Math.max(4, rowRect.left - wrapRect.left - 236);
+    tooltip.style.left = left + "px";
+    tooltip.style.top = Math.max(4, rowTop - 6) + "px";
+  }
+  function hideTip(){ tooltip.hidden = true; }
+
+  WALL.forEach(function(o, i){
+    var y = top + rowH * i + rowH / 2;
+    var g = el("g", { class:"wall-row-group", tabindex:"0", role:"img",
+      "aria-label": o.label + ": " + o.value + " percent. " + o.tip
+    }, svg);
+    el("rect", { x:0, y: y-14, width: plotRight+4, height:28, class:"fp-hit" }, g);
+    el("text", { x: plotLeft-12, y: y+4, class:"fp-row-label", "text-anchor":"end" }, g).textContent = o.label;
+    el("line", { x1: xScale(0), x2: xScale(o.value), y1:y, y2:y, class:"wall-bar" }, g);
+    el("text", { x: xScale(o.value)+10, y: y+4, class:"fp-value-label", "text-anchor":"start" }, g).textContent = o.value + "%";
 
     var tipHtml = "<span class='fp-tt-title'>" + o.label + "</span>" + o.tip;
     g.addEventListener("mouseenter", function(){ showTip(tipHtml, g); });
